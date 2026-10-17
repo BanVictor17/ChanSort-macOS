@@ -22,7 +22,7 @@ Schneider brand alone does not identify a format. The included Silva-Schneider f
 
 ## Source and build
 
-The source is a local Git clone of https://github.com/PredatH0r/ChanSort on branch `macos-portable`. No online GitHub fork has been created. The upstream remote and history are preserved.
+The macOS port is published at https://github.com/BanVictor17/ChanSort-macOS on branch `macos-portable`, forked from https://github.com/PredatH0r/ChanSort. The upstream history is preserved.
 
 Build with Xcode command-line tools and Python 3:
 
