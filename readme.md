@@ -2,7 +2,7 @@
 
 A native Apple Silicon channel-list editor, built from [ChanSort](https://github.com/PredatH0r/ChanSort) with a new Swift/AppKit interface and the original TV-format loaders running on a bundled ARM64 .NET runtime.
 
-**The default branch is `main` and contains the macOS port.** This repository is maintained as a macOS fork. For the original Windows application, see [upstream ChanSort](https://github.com/PredatH0r/ChanSort).
+**The default branch is `master` and contains the macOS port.** This repository is maintained as a macOS fork. For the original Windows application, see [upstream ChanSort](https://github.com/PredatH0r/ChanSort).
 
 ## Download
 
@@ -42,7 +42,7 @@ Backup contents and rejection of duplicate channel numbers were also checked. Na
 
 ## Build from source
 
-Clone the default `main` branch, then build with Xcode command-line tools and Python 3:
+Clone the default `master` branch, then build with Xcode command-line tools and Python 3:
 
 ```sh
 git clone https://github.com/BanVictor17/ChanSort-macOS.git
