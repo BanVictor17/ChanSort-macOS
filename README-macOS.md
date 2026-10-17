@@ -22,7 +22,7 @@ Schneider brand alone does not identify a format. The included Silva-Schneider f
 
 ## Source and build
 
-The macOS port is published at https://github.com/BanVictor17/ChanSort-macOS on branch `macos-portable`, forked from https://github.com/PredatH0r/ChanSort. The upstream history is preserved.
+The macOS port is published at https://github.com/BanVictor17/ChanSort-macOS on the default branch `main`, forked from https://github.com/PredatH0r/ChanSort. The upstream history is preserved.
 
 Build with Xcode command-line tools and Python 3:
 
@@ -35,4 +35,4 @@ The build downloads a pinned, SHA-512-verified .NET SDK into `.sdk/`, restores p
 
 The adapter projects live in `macos/`; the upstream Windows solution remains separate. The small change to the LG binary loader skips loading the Windows settings interface on macOS. Device-settings dialogs remain unavailable in this preview.
 
-ChanSort is GPLv3. See the upstream `readme.md` for its license notice. macOS adaptation sources are provided under the same license; bundled third-party components retain their respective licenses.
+ChanSort is GPLv3. See [the preserved upstream README](docs/readme-upstream.md) for its license notice. macOS adaptation sources are provided under the same license; bundled third-party components retain their respective licenses.

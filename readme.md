@@ -1,113 +1,62 @@
-Links
------
-[![EN](https://chansort.com/img/flag_en_24.png)](https://github.com/PredatH0r/ChanSort/blob/master/readme.md)
-[![DE](https://chansort.com/img/flag_de_16.png)](https://github.com/PredatH0r/ChanSort/blob/master/readme_de.md)
-[![PL](https://chansort.com/img/flag_pl_16.png)](https://github.com/PredatH0r/ChanSort/blob/master/readme_pl.md)
-[![TR](https://chansort.com/img/flag_tr_16.png)](https://github.com/PredatH0r/ChanSort/blob/master/readme_tr-TR.md) |
-[Download](https://github.com/PredatH0r/ChanSort/releases) | 
-[Documentation](https://github.com/PredatH0r/ChanSort/wiki) |
-[Forum](https://github.com/PredatH0r/ChanSort/issues) | 
-[E-Mail](mailto:horst@beham.biz)
+# ChanSort for macOS
 
-About ChanSort
---------------
-ChanSort is a PC application that allows you to reorder your TV's channel list.  
-Most modern TVs can transfer channel lists via USB stick, which you can plug into your PC.  
-ChanSort supports [file formats from numerous brands](#supported-tv-models) and can copy program numbers and
-favorites from one file to another, even between different models and brands.
+A native Apple Silicon channel-list editor, built from [ChanSort](https://github.com/PredatH0r/ChanSort) with a new Swift/AppKit interface and the original TV-format loaders running on a bundled ARM64 .NET runtime.
 
-![screenshot](http://beham.biz/chansort/ChanSort-en.png)
+**The default branch is `main` and contains the macOS port.** This repository is maintained as a macOS fork. For the original Windows application, see [upstream ChanSort](https://github.com/PredatH0r/ChanSort).
 
-Features
---------
-- Reorder channels (change numbers directly, move up/down, drag&drop, double-click)
-- Use another channel list as a reference to apply the same ordering
-- Multi-selection for editing multiple channels at once
-- Single-list view (showing assigned channels first and then all unassigned channels)
-- Side-by-side view of new/sorted list and original/complete list (similar to playlist and library)
-- Rename or delete channels
-- Manage favorites, parental lock, channel skipping (when zapping), channel hiding
-- User interface in English, German, Spanish, Turkish, Portuguese, Russian and Romanian
-- Unicode character support for channel names (Latin, Cyrillic, Greek, ...)
+## Download
 
-NOT supported:
-- adding new transponders or channels
-- changing tuner related properties of channels (ONID, TSID, SID, frequency, APID, VPID, ...)
+[Download the macOS preview](https://github.com/BanVictor17/ChanSort-macOS/releases/tag/v0.1.0-macos-preview.1) and extract the ARM64 ZIP into a writable folder. Open `ChanSort.app` inside that folder.
 
-Some features may not be available on all TV models and channel types (analog, digital, sat, cable, ...)
+- Apple Silicon Mac required; the build targets macOS 13 or later.
+- CrossOver, Wine, Rosetta and a separate .NET installation are not required.
+- Keep the app in its extracted folder. Backups, logs and temporary files are stored beside it rather than in a ChanSort Application Support directory.
+- The preview is ad-hoc signed and is not notarized by Apple. macOS may require approval in Privacy & Security when opening a downloaded copy.
 
-! USE AT YOUR OWN RISK !
-------------------------
-Most of this software was written without support from TV manufacturers or access to any official 
-documentation about the file formats. It is solely based on analysing existing data files, trial and error.
-There is a chance of unwanted side-effects or even damage to your TV, as reported in 2 cases.
+macOS may maintain its own system metadata. Saving an export intentionally updates the selected export at its existing location.
 
-Hisense is the only manufacturer who provided technical information and a test device.
+## What works
 
-Supported TV models 
--------------------
-ChanSort supports a large number of file formats, but it's impossible to tell for every brand and TV model 
-what file format it uses (with may even change with firmware updates).  
-This list gives some examples of what should be supported, but even if your model or brand is not in this list, 
-it may work anyway:
-- [Samsung](source/fileformats.md#samsung)
-- [LG](source/fileformats.md#lg)
-- [Sony](source/fileformats.md#sony)
-- [Hisense](source/fileformats.md#hisense)
-- [Panasonic](source/fileformats.md#panasonic)
-- [TCL](source/fileformats.md#tcl)
-- [Philips](source/fileformats.md#philips)
-- [Sharp, Dyon, Blaupunkt, Hisense, Changhong, Grundig, alphatronics, JTC Genesis, ...](source/fileformats.md#sharp)
-- [Toshiba](source/fileformats.md#toshiba)
-- [Grundig](source/fileformats.md#grundig)
-- [SatcoDX: ITT, Medion, Nabo, ok., PEAQ, Schaub-Lorenz, Silva-Schneider, Telefunken, ...](source/fileformats.md#satcodx)
-- [DBM: Xoro, Strong, TechniSat, ...](source/fileformats.md#dbm)
-- [Loewe](source/fileformats.md#hisense)
-- [Vision Edge 4K](source/fileformats.md#visionedge)
-- [VDR](source/fileformats.md#vdr)
-- [SAT>IP m3u](source/fileformats.md#m3u)
-- [Enigma2](source/fileformats.md#enigma2)
+- Open a TV channel export and choose a channel list.
+- Search channels by name.
+- Move channels up, down, to the top or to the bottom.
+- Edit a channel number; occupied numbers are swapped.
+- Sort alphabetically or renumber from 1.
+- Save with a backup of the source files and a manifest describing their original locations.
 
+## Preview limitations
 
-System requirements
--------------------
-**Windows**:  
-- Windows 7 SP1, Windows 8.1, Windows 10 v1606 or later, Windows 11 (with x86, x64 or ARM CPU)
-- [Microsoft .NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework)
-- The .NET FW 4.8 does NOT work with Windows 7 without SP1, Windows 8 or Windows 10 prior to v1606
+This first native version focuses on channel numbering and reordering. Renaming, favorites editing, channel deletion, reference-order copying and TV device settings are not exposed. Lists marked read-only by the loader and mixed-source favorite lists cannot be edited.
 
-**Linux**:  
-- wine (sudo apt-get install wine)
-- winetricks (sudo apt-get install winetricks)
-- start winetricks, select or create a wineprefix (32 bit or 64 bit), select
-  "Install Windows DLL or component" and install the "dotnet48" package and ignore dozens of message boxes
-- right-click on ChanSort.exe and select "open with", "all applications", "A wine application"  
-Last tested with Ubuntu 24.10, wine-9.0, winetricks 20240105
+The loaders compile for macOS, but every TV model and export variant has not been verified. Load → reorder → save → reload passed with these upstream fixtures:
 
-Or using Docker: https://github.com/PredatH0r/ChanSort/issues/285
+| Format | Channels |
+| --- | ---: |
+| Silva-Schneider SDX | 1,108 |
+| LG binary TLL | 3,530 |
+| LG XML/TLL | 150 |
+| Samsung ZIP | 161 |
+| M3U | 6 |
 
-**Mac**
-- macOS is not directly supported, but you can use Parallels or UTM to set up a VM with Windows 10/11 on the Mac
-- instructions for Macs with m1/ARM CPU: https://history-computer.com/how-to-run-windows-on-m1-macs/
+Backup contents and rejection of duplicate channel numbers were also checked. Native UI reordering and saving were exercised with the Schneider fixture. Schneider SDX verification does not establish compatibility with an untested Schneider TLL export.
 
-**Hardware**:
-- USB stick/SD-card to transfer the channel list between your TV and PC. A stick <= 32 GB with FAT32 file system 
-is STRONGLY recommended. (Some TVs write garbage to NTFS and don't support exFAT at all)
+## Build from source
 
-Build from source
------------------
-See [build.md](source/build.md)
+Clone the default `main` branch, then build with Xcode command-line tools and Python 3:
 
-License (GPLv3)
----------------
-GNU General Public Licence, Version 3: http://www.gnu.org/licenses/gpl.html  
-Source code is available on https://github.com/PredatH0r/ChanSort
+```sh
+git clone https://github.com/BanVictor17/ChanSort-macOS.git
+cd ChanSort-macOS
+./macos/build.sh
+python3 macos/tests/smoke.py
+```
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+The build installs its pinned, checksum-verified SDK and package dependencies inside the repository, publishes the bundled ARM64 engine, compiles the AppKit interface and ad-hoc signs `ChanSort.app`.
 
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+See [macOS implementation and build details](README-macOS.md). The native interface and adapter projects are in [`macos/`](macos/); the inherited ChanSort source and format loaders are in [`source/`](source/).
+
+## Credits and license
+
+Based on [ChanSort by Horst Beham and contributors](https://github.com/PredatH0r/ChanSort). The original project documentation and GPLv3 notice are preserved in [the upstream README](docs/readme-upstream.md).
+
+ChanSort and this macOS adaptation are provided under GPLv3. Bundled third-party components retain their respective licenses. This is an independent macOS fork, not an official upstream macOS release.
