@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ChanSort.Loader.Philips</AssemblyName>
+    <RootNamespace>ChanSort.Loader.Philips</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>CA1416;SYSLIB0051;SYSLIB0011</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../source/ChanSort.Loader.Philips/**/*.cs" Exclude="../../source/ChanSort.Loader.Philips/obj/**;../../source/ChanSort.Loader.Philips/bin/**;../../source/ChanSort.Loader.Philips/Utils/ChannelMappingBase.cs" />
+    <EmbeddedResource Include="../../source/ChanSort.Loader.Philips/**/*.resx" />
+    <None Include="../../source/ChanSort.Loader.Philips/*.ini;../../source/ChanSort.Loader.Philips/*.csv" CopyToOutputDirectory="PreserveNewest" Link="%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ChanSort.Api/ChanSort.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+    <PackageReference Include="System.IO.Hashing" Version="11.0.0-rc.1.26425.128" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="../../source/ChanSort.Loader.Philips/DllClient.cs" />
+    <ProjectReference Include="../ChanSort.Loader.MediaTek/ChanSort.Loader.MediaTek.csproj" />
+  </ItemGroup>
+</Project>

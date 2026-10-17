@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ChanSort.Loader.Medion</AssemblyName>
+    <RootNamespace>ChanSort.Loader.Medion</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>CA1416;SYSLIB0051;SYSLIB0011</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../source/ChanSort.Loader.Medion/**/*.cs" Exclude="../../source/ChanSort.Loader.Medion/obj/**;../../source/ChanSort.Loader.Medion/bin/**;../../source/ChanSort.Loader.Medion/Utils/ChannelMappingBase.cs" />
+    <EmbeddedResource Include="../../source/ChanSort.Loader.Medion/**/*.resx" />
+    <None Include="../../source/ChanSort.Loader.Medion/*.ini;../../source/ChanSort.Loader.Medion/*.csv" CopyToOutputDirectory="PreserveNewest" Link="%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ChanSort.Api/ChanSort.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+    <PackageReference Include="System.IO.Hashing" Version="11.0.0-rc.1.26425.128" />
+  </ItemGroup>
+</Project>

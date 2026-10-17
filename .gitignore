@@ -5,3 +5,23 @@ source/ChanSort.opensdf
 /source/ChanSort.Loader.PhilipsBin/DllClient.cs
 /source/ChanSort.Loader.MediaTek/.vs/
 /source/__.vs/
+
+# Portable macOS build and local state
+.sdk/
+.nuget/
+.dotnet-home/
+.build/
+macos/**/bin/
+macos/**/obj/
+*.app/
+app/
+runtime/
+tmp/
+logs/
+backups/
+workspace/
+*.zip
+sdk.tar.gz
+*-releases.json
+sdk-download.json
+release.json

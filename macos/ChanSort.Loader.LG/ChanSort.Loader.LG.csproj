@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>ChanSort.Loader.LG</AssemblyName>
+    <RootNamespace>ChanSort.Loader.LG</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <NoWarn>CA1416;SYSLIB0051;SYSLIB0011</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../source/ChanSort.Loader.LG/**/*.cs" Exclude="../../source/ChanSort.Loader.LG/obj/**;../../source/ChanSort.Loader.LG/bin/**;../../source/ChanSort.Loader.LG/Utils/ChannelMappingBase.cs" />
+    <EmbeddedResource Include="../../source/ChanSort.Loader.LG/**/*.resx" />
+    <None Include="../../source/ChanSort.Loader.LG/*.ini;../../source/ChanSort.Loader.LG/*.csv" CopyToOutputDirectory="PreserveNewest" Link="%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ChanSort.Api/ChanSort.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.12" />
+    <PackageReference Include="System.IO.Hashing" Version="11.0.0-rc.1.26425.128" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="../../source/ChanSort.Loader.LG/Binary/TllFileSerializer.sql.cs" />
+  </ItemGroup>
+</Project>

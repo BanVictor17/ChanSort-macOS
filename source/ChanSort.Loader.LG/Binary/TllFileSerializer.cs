@@ -204,6 +204,9 @@ namespace ChanSort.Loader.LG.Binary
       if (this.uiFactory != null || this.IsTesting)
         return;
 
+      if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX))
+        return;
+
       // run-time-binding to the UI factory so that the loader module can be edited + compiled without DevExpress dependencies
       var ass = Assembly.Load(new AssemblyName("ChanSort.Loader.LG.UI"));
       var type = ass.GetType("ChanSort.Loader.LG.UI.LgUserInterfaceFactory");
