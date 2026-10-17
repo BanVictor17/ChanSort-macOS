@@ -25,3 +25,5 @@ sdk.tar.gz
 *-releases.json
 sdk-download.json
 release.json
+
+.tools/
